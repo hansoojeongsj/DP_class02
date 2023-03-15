@@ -27,7 +27,7 @@ public class BookShelf implements Iterable<Book> {
     // 자신의 iterator를 반한하는 메소드
     @Override
     public BookShelfIterator iterator(){
-        return new BookShelfIterator(this); //thi 내 책 꽂이와 연결해라
+        return new BookShelfIterator(this); //thi 내 책꽂이와 연결해라
 
     }
 }

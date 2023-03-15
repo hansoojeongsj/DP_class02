@@ -1,7 +1,7 @@
 package ch01.practice;
 
 public class Book{
-    //속성
+    //속성git config user.email
     private String name = "";
     //메소드
     public Book(String name) {
@@ -11,6 +11,4 @@ public class Book{
     public String getName() {
         return name;
     }
-
-
 }

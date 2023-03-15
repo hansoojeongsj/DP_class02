@@ -1,5 +1,5 @@
 package ch01.practice;
-
+ 
 import java.util.Iterator;
 
 public class BookShelfIterator implements Iterator<Book> {
