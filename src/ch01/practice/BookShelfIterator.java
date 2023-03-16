@@ -28,6 +28,7 @@ public class BookShelfIterator implements Iterator<Book> {
     // 그 다음 원소(책)를 반환하는 메소드
     @Override
     public Book next() {
+        // Book b = bs.getBookFrom(index);
         Book b = bs.getBookAt(index);
         index++;
         return b;
