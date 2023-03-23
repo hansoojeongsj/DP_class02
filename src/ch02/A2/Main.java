@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         FileIO f = new FileProperties(); // 어댑터 생성
         try {
-            f.readFromFile("file.txt");
+            //f.readFromFile("file.txt");
 
             f.setValue("width", "1024");
             f.setValue("height", "512");
@@ -19,4 +19,5 @@ public class Main {
             e.printStackTrace();
         }
     }
-}
+} // [workspace] 명에서대괄호에서 오류발생 이름 바꿔주기 걍  workspace이걸로
+

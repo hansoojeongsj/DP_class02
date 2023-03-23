@@ -12,7 +12,7 @@ public class FileProperties implements FileIO {
 
     @Override
     public void readFromFile(String filename) throws IOException {
-        property.load(new FileReader(filename));
+        property.load(new FileReader(filename)); //어댑티의 로드를 호출한다->위임
     }
 
     @Override
