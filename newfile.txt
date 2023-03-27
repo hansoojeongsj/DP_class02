@@ -1,0 +1,7 @@
+#written by FileProperties
+#Mon Mar 27 22:13:21 KST 2023
+age=20
+depth=32
+height=512
+name=hsj
+width=1024
