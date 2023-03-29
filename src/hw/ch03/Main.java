@@ -5,6 +5,7 @@ public class Main {
         System.out.println("20210833 한수정");
         
         AbstractDisplay s = new HansooJeongDisplay("한수정","20210833",3);
+        
         s.display(10);
 
 

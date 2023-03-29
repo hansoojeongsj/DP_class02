@@ -13,5 +13,5 @@ public class Banner {
 
     public void showWithAster() {
         System.out.println("*" + string + "*");
-    }
+    } 
 }
