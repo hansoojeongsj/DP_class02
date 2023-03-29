@@ -5,13 +5,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
 
-//어댑터(위임 이용)
 public class FileProperties extends Properties implements FileIO {
-
     public FileProperties() {
         super();
     }
-
     @Override
     public void readFromFile(String filename) throws IOException {
         load(new FileReader(filename));

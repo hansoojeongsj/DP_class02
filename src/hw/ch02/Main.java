@@ -5,8 +5,9 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
         FileIO f = new FileProperties(); // 어댑터 생성
+        System.out.println("20210833 한수정");
         try {
-            //f.readFromFile("file.txt");
+            f.readFromFile("file.txt");
 
             f.setValue("Year", "2023");
             f.setValue("bornYear", "2002");
