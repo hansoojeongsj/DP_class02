@@ -10,6 +10,10 @@ public class Main {
         UnderlinePen upen = new UnderlinePen('-');
         MessageBox mbox = new MessageBox('*');
         MessageBox sbox = new MessageBox('/');
+        
+        // 수업시간에 밑에 두줄 작성
+        MessageBox copyOfsbox = new MessageBox(sbox);
+        copyOfsbox.use("Duksung");
 
         // 登録
         manager.register("strong message", upen);

@@ -15,7 +15,7 @@ public class Main {
         // 등록 
         // 생성과 사용
         // 클래스 이름없이 객체를 얻을 수 있음
-        manager.register("strong message", upen);
+        manager.register("strong message", upen); // 객체들을 매니저에 등록
         manager.register("warning box", mbox);
         manager.register("slash box", sbox);
 
