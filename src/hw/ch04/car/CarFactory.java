@@ -6,25 +6,23 @@ import java.util.Vector;
 import java.util.Iterator;
 
 public class CarFactory extends Factory {
-    private int serial = 100;
-    private Vector<String> modelNames = new Vector<>(); 
+    //private int serial = 100;
+    private Vector<String> modelNames = new Vector <String>(); 
 
     protected synchronized Product createProduct(String modelName) {
         
-        return new Car_SooJeongHan(modelName, serial++);
+        return new Car_SooJeongHan(modelName);
     }
 
     @Override
     protected void registerProduct(Product product) {
-
+        modelNames.add(product.getModelName());
     }
-    protected void printAllModelNames() {
-        //modelNames에 저장되어 있는 모델 이름들을 하나씩 끄집어내와서 출력한다.
-        Iterator modelName = modelNames.iterator();
-        
-		while (modelName.hasNext()) {
-			Product modelNames = (Product)modelName.next(); // 다음 책을 얻어온다.
-			System.out.println(modelNames);
-	    }	
+    public void printAllModelNames() {
+        Iterator it = modelNames.iterator();
+        while (it.hasNext()) {
+            String s = (String) it.next();
+            System.out.println(s);
+        }
     }
 }

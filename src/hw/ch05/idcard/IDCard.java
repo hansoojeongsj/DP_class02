@@ -1,6 +1,6 @@
 package hw.ch05.idcard;
 
-import ch04.practice.framework.Product;
+import hw.ch05.framework.Product;
 
 public class IDCard extends Product { //Product 상속받음
     private String owner;

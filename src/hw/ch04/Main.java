@@ -1,16 +1,14 @@
 package hw.ch04;
 
 import hw.ch04.car.CarFactory;
-import hw.ch04.car.Car_SooJeongHan;
-import hw.ch04.framework.Factory;
+// import hw.ch04.car.Car_SooJeongHan;
+// import hw.ch04.framework.Factory;
 import hw.ch04.framework.Product;
-
-
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("<<20210833, 한수정>>");
-        Factory factory = new CarFactory();
+        CarFactory factory = new CarFactory();
         Product car1 = factory.create("한수정");
         Product car2 = factory.create("그랜저");
         Product car3 = factory.create("소나타");
@@ -19,5 +17,7 @@ public class Main {
         car2.use();
         car3.use();
         car4.use();
+        System.out.println("\n<모델명 리스트>");
+        factory.printAllModelNames();
     }
 }

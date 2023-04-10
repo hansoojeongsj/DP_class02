@@ -1,6 +1,7 @@
 package hw.ch05.idcard;
-import ch04.practice.framework.Factory;
-import ch04.practice.framework.Product;
+
+import hw.ch05.framework.Factory;
+import hw.ch05.framework.Product;
 
 public class IDCardFactoryHanSoojeong2 extends Factory {
     private static IDCardFactoryHanSoojeong2 singleton = null;
