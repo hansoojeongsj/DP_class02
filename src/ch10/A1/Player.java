@@ -1,11 +1,11 @@
 package ch10.A1;
 
 public class Player {
-    private String name;
+    private String name ="";
     private Strategy strategy;
-    private int wincount;
-    private int losecount;
-    private int gamecount;
+    private int wincount = 0;
+    private int losecount = 0;
+    private int gamecount = 0;
 
     // 이름과 전략을 받아서 플레이어를 만든다 
     public Player(String name, Strategy strategy) {
