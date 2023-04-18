@@ -36,7 +36,7 @@ public class Directory extends Entry {
     protected void printList(String prefix) {
         System.out.println(prefix + "/" + this); // 자기것 출력
 
-        for (Entry entry: directory) { // 자식들 출력
+        for (Entry entry: directory) { // 자식들 출력 // Entry 자식들 다 출력가능 꺼낼때, 담을 떄 모두 entry임
             entry.printList(prefix + "/" + name);
         }
     }
