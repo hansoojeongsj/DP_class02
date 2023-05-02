@@ -1,4 +1,4 @@
-package ch16.Sample;
+package hw.ch16;
 
 public interface Mediator {
     // Colleague를 생성한다 
