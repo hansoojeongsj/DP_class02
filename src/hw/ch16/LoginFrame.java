@@ -8,6 +8,8 @@ import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 public class LoginFrame extends Frame implements ActionListener, Mediator {
     private ColleagueCheckbox checkGuest;
     private ColleagueCheckbox checkLogin;
@@ -71,7 +73,7 @@ public class LoginFrame extends Frame implements ActionListener, Mediator {
         CheckboxGroup g = new CheckboxGroup();
         checkGuest = new ColleagueCheckbox("Guest", g, true);
         checkLogin = new ColleagueCheckbox("Login", g, false);
-        checkMember = new ColleagueCheckbox("Member", g, false)
+        checkMember = new ColleagueCheckbox("Member", g, false);
 
 
         // TextField
@@ -87,16 +89,20 @@ public class LoginFrame extends Frame implements ActionListener, Mediator {
         // Mediator를 설정한다 
         checkGuest.setMediator(this);
         checkLogin.setMediator(this);
+        checkMember.setMediator(this);
         textUser.setMediator(this);
         textPass.setMediator(this);
+        textSSN.setMediator(this);
         buttonOk.setMediator(this);
         buttonCancel.setMediator(this);
 
         // Listener 설정
         checkGuest.addItemListener(checkGuest);
         checkLogin.addItemListener(checkLogin);
+        checkMember.addItemListener(checkLogin);
         textUser.addTextListener(textUser);
         textPass.addTextListener(textPass);
+        textSSN.addTextListener(textSSN);
         buttonOk.addActionListener(this);
         buttonCancel.addActionListener(this);
     }
@@ -104,15 +110,14 @@ public class LoginFrame extends Frame implements ActionListener, Mediator {
     // Colleage의 상태가 바뀌면 호출된다
     @Override
     public void colleagueChanged() {
-        if (checkGuest.getState()) {
-            // 게스트 로그인 
-            textUser.setColleagueEnabled(false);
-            textPass.setColleagueEnabled(false);
-            buttonOk.setColleagueEnabled(true);
-        } else {
-            // 사용자 로그인 
+        if (checkMember.getState()) {
             textUser.setColleagueEnabled(true);
             userpassChanged();
+        } else {
+            textUser.setColleagueEnabled(false);
+            textPass.setColleagueEnabled(false);
+            textSSN.setColleagueEnabled(false);
+            buttonOk.setColleagueEnabled(false);
         }
     }
 
@@ -121,14 +126,28 @@ public class LoginFrame extends Frame implements ActionListener, Mediator {
     private void userpassChanged() { 
         if (textUser.getText().length() > 0) { // 문자열이 입력되어 있으면..
             textPass.setColleagueEnabled(true);
+            
             if (textPass.getText().length() > 0) {
-                buttonOk.setColleagueEnabled(true);
+                textSSN.setColleagueEnabled(true);
+                for (int i = 0; i < textSSN.getText().length(); i++) {
+                    if (!Character.isDigit(textSSN.getText().charAt(i))) {
+                        JOptionPane.showMessageDialog(null, "문자를 입력하지 마시오.", "오류", JOptionPane.WARNING_MESSAGE);
+                        String input = textSSN.getText();
+                        textSSN.setText(input.substring(0, input.length() - 1));
+                        textSSN.setCaretPosition(input.length() - 1);
+                    }else if(textSSN.getText().length() == 13){
+                        buttonOk.setColleagueEnabled(true);
+                    }else{
+                        buttonOk.setColleagueEnabled(false);
+                    }
+                }
             } else {
+                textSSN.setColleagueEnabled(false);
                 buttonOk.setColleagueEnabled(false);
             }
         } else {  // 패스워드 칸에 문자열이 앖으면..
-            textPass.setColleagueEnabled(false);
-            buttonOk.setColleagueEnabled(false);
+        textPass.setColleagueEnabled(false);
+        buttonOk.setColleagueEnabled(false);
         }
     }
 
