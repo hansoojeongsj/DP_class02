@@ -35,14 +35,18 @@ public class FrameObserver extends Frame implements Observer, ActionListener {
         @Override
         public void update(NumberGenerator generator) {
             number = generator.getNumber();
-            repaint();
+            repaint(); // 도화지를 clear 하고 나서 paint()를 호출함
         }
 
         public void paint(Graphics g) {
             int width = getWidth();
             int height = getHeight();
+
+            // 원 전체를 그림
             g.setColor(Color.white);
             g.fillArc(0, 0, width, height, 0, 360);
+            
+            // 원 호를 그림
             g.setColor(Color.red);
             g.fillArc(0, 0, width, height, 90, - number * 360 / 50);
         }

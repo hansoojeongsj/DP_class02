@@ -10,6 +10,8 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import ch19.A4.UrgentState;
+
 public class SafeFrame extends Frame implements ActionListener, Context {
     private TextField textClock = new TextField(60);		// 현재 시간 표시
     private TextArea textScreen = new TextArea(10, 60);	// 경비 센터 출력
@@ -56,7 +58,8 @@ public class SafeFrame extends Frame implements ActionListener, Context {
         if (e.getSource() == buttonUse) {		// 금고 사용 버튼
             state.doUse(this);
         } else if (e.getSource() == buttonAlarm) {	// 비상벨 버튼 
-            state.doAlarm(this);
+            state.doAlarm(this); 
+            
         } else if (e.getSource() == buttonPhone) {	// 일반 통화 버튼  
             state.doPhone(this);
         } else if (e.getSource() == buttonExit) {	// 종료 버튼 
