@@ -9,6 +9,7 @@ public class Main {
         png.addObserver(observer1);
         png.addObserver(observer2);
         png.addObserver(observer3);
+        System.out.println("20210833 한수정");
         png.execute();
     }
 }
