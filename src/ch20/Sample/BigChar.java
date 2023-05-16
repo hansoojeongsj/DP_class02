@@ -11,16 +11,19 @@ public class BigChar {
     private String fontdata;
 
     // 생성자 
-    public BigChar(char charname) {
+    public BigChar(char charname) { //'1'
         this.charname = charname;
         try {
             String filename = "big" + charname + ".txt";
             StringBuilder sb = new StringBuilder();
+
             for (String line: Files.readAllLines(Path.of(filename))) {
                 sb.append(line);
                 sb.append("\n");
             }
+
             this.fontdata = sb.toString();
+
         } catch (IOException e) {
             this.fontdata = charname + "?";
         }
