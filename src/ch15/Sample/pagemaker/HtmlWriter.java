@@ -44,6 +44,7 @@ public class HtmlWriter {
         writer.write("</body>");
         writer.write("</html>");
         writer.write("\n");
+        
         writer.close();
     }
 }

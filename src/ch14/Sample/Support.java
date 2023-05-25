@@ -2,7 +2,7 @@ package ch14.Sample;
 
 public abstract class Support {
     private String name;    // 이 트러블 해결자 이름
-    private Support next;   // 떠넘길 곳
+    private Support next;   // 떠넘길 곳(부모 타입)
 
     public Support(String name) {
         this.name = name;
@@ -17,12 +17,12 @@ public abstract class Support {
 
     // 트러블 해결 절차를 결정한다
     public void support(Trouble trouble) {
-        if (resolve(trouble)) {
-            done(trouble);
-        } else if (next != null) {
-            next.support(trouble);
-        } else {
-            fail(trouble);
+        if (resolve(trouble)) { // 해결 했으면..
+            done(trouble); 
+        } else if (next != null) { // 뒷사람이 있으면
+            next.support(trouble); // 뒷사람한테 넘긴다.
+        } else { // 뒷사람이 없으면...
+            fail(trouble); // 실패
         }
     }
 
