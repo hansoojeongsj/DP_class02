@@ -10,7 +10,9 @@ public class MacroCommand implements Command {
     // 실행 
     @Override
     public void execute() {
-        for (Command cmd: commands) {
+        for (Command cmd: commands) { 
+            //내부적으로는 iterator()를 호출해서 동작함 -> 스택의 top에서부터 꺼내옴. 아래서부터 꺼내는 dequeue가 있음.알아서 찾아봐
+        
             cmd.execute();
         }
     }

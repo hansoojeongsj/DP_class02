@@ -1,4 +1,4 @@
-package ch07.Sample;
+package ch07.practice;
 
 public class TextBuilder extends Builder {
     private StringBuilder sb = new StringBuilder(); // 같은 일 하는 class :  StringBuffer
