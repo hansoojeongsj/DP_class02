@@ -2,7 +2,7 @@ package ch07.practice;
 
 import java.io.*;
 
-public class HTMLBuilder extends Builder {
+public class HTMLBuilder implements Builder {
     private String filename = "untitled.html";
     private StringBuilder sb = new StringBuilder();
 
@@ -43,7 +43,7 @@ public class HTMLBuilder extends Builder {
     public void close() {
         sb.append("</body>");
         sb.append("</html>\n");
-        
+
         try {
             Writer writer = new FileWriter(filename);
             writer.write(sb.toString());
