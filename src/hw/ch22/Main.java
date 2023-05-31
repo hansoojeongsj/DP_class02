@@ -8,7 +8,8 @@ import hw.ch22.command.*;
 import hw.ch22.drawer.*;
 
 public class Main extends JFrame implements MouseMotionListener, WindowListener {
-    // 그리기 이력 
+    
+  // 그리기 이력 
     private MacroCommand history = new MacroCommand();
     // 그리는 영역 
     private DrawCanvas canvas = new DrawCanvas(400, 400, history);
@@ -102,7 +103,8 @@ public class Main extends JFrame implements MouseMotionListener, WindowListener 
     @Override public void windowOpened(WindowEvent e) {}
 
     public static void main(String[] args) {
-        new Main("Command Pattern Sample");
+        new Main("Command Pattern Sample 20210833 한수정");
+        System.out.println("20210833 한수정");
     }
 }
 
