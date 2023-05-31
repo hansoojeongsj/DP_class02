@@ -13,6 +13,7 @@ public class DrawCanvas extends Canvas implements Drawable {
     private int radius;
     // 이력 
     private MacroCommand history;
+    
 
     // 생성자 
     public DrawCanvas(int width, int height, MacroCommand history) {

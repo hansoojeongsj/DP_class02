@@ -19,6 +19,8 @@ public class DrawCommand implements Command {
     // 실행
     @Override
     public void execute() {
+        
         drawable.draw(position.x, position.y);
     }
+
 }

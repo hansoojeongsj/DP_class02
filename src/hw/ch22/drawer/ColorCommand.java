@@ -1,5 +1,7 @@
 package hw.ch22.drawer;
+
 import hw.ch22.command.Command;
+
 import java.awt.Color;
 
 public class ColorCommand implements Command {
@@ -7,8 +9,8 @@ public class ColorCommand implements Command {
     protected Drawable drawable;
     // 그리기 색 
     private Color color;
-
-    // 생성자 
+    
+    // 생성자
     public ColorCommand(Drawable drawable, Color color) {
         this.drawable = drawable;
         this.color = color;
@@ -19,4 +21,5 @@ public class ColorCommand implements Command {
     public void execute() {
         drawable.setColor(color);
     }
+
 }
