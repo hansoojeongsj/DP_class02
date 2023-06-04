@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+// Originator 
 public class Gamer {
     // 소지금
     private int money;
@@ -13,7 +14,7 @@ public class Gamer {
     private Random random = new Random();
 
     // 과일 이름 표 
-    private static String[] fruitsName = {
+    private static String[] fruitsName = { // static이라 ->  class에 속한한 속성, private: 잘 숨겨져 있음
         "사과", "포도", "바나나", "오렌지",
     };
 
@@ -30,7 +31,7 @@ public class Gamer {
     // 내기한다 … 게임 진행 
     public void bet() {
         // 주사위를 던진다 
-        int dice = random.nextInt(6) + 1;
+        int dice = random.nextInt(6) + 1; // 0~5 사이의 정수 발생 + 1 => 1~6
         if (dice == 1) {
             // 1의 눈 … 소지금이 증가한다 
             money += 100;
@@ -50,10 +51,11 @@ public class Gamer {
         }
     }
 
-    // 스냅샷을 찍는다 
+    // 스냅샷을 찍는다 (보존한다) 돈 & 맛있는 과일 저장
     public Memento createMemento() {
         Memento m = new Memento(money);
-        for (String f: fruits) {
+
+        for (String f: fruits) { // 자기가 가지고 있는 과일list 하나씩 꺼내와서 Memento 객체에 추가
             // 과일은 맛있는 것만 저장한다
             if (f.startsWith("맛있는 ")) {
                 m.addFruit(f);
@@ -67,15 +69,17 @@ public class Gamer {
         this.money = memento.getMoney();
         this.fruits = memento.getFruits();
     }
-
+    
+    //출력
     @Override
-    public String toString() {
+    public String toString() { 
         return "[money = " + money + ", fruits = " + fruits + "]";
     }
 
     // 과일을 하나 얻는다
     private String getFruit() {
-        String f = fruitsName[random.nextInt(fruitsName.length)];
+        String f = fruitsName[random.nextInt(fruitsName.length)]; // 배열의 길이를 이용, 임의의 숫자 발생, index넣어줌
+
         if (random.nextBoolean()) {
             return "맛있는 " + f;
         } else {

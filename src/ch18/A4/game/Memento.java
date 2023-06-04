@@ -27,7 +27,7 @@ public class Memento {
 
     // 과일을 얻는다(wide interface)
     List<String> getFruits() {
-         return new ArrayList<>(fruits);
+        return new ArrayList<>(fruits);
     }
 
     // 파일에 저장
@@ -35,6 +35,7 @@ public class Memento {
         StringBuilder sb = new StringBuilder();
 
         // 소지금
+        //memento.money 돈의 액수 얻어짐. format하면 %d에 들어가고 StringBuilder에 append함.
         sb.append(String.format("%d", memento.money));
         sb.append("\n");
 
@@ -44,9 +45,9 @@ public class Memento {
             sb.append("\n");
         }
 
-        // 쓰기
-        try {
-            Files.writeString(Path.of(filename), sb,
+        // 쓰기, File에 String 써라
+        try { 
+            Files.writeString(Path.of(filename), sb, 
                     StandardOpenOption.CREATE,
                     StandardOpenOption.TRUNCATE_EXISTING,
                     StandardOpenOption.WRITE);
@@ -57,12 +58,12 @@ public class Memento {
         return true;
     }
 
-    // 파일로부터 생성
+    // 파일로부터 생성, 파일에 있는 내용 읽어서 Mememto 생성
     public static Memento loadFromFile(String filename) {
         try {
-            // 읽기
+            // 읽기, File에 있는 내용 읽어들여라
             List<String> lines = Files.readAllLines(Path.of(filename));
-            if (lines.size() == 0) {
+            if (lines.size() == 0) { 
                 System.out.println("Empty file");
                 return null;
             }
@@ -70,13 +71,13 @@ public class Memento {
             // 소지금
             int money = 0;
             try {
-                money = Integer.parseInt(lines.get(0));
+                money = Integer.parseInt(lines.get(0)); // string을 정수로, 그 후 money에 담아둠.
             } catch (NumberFormatException e) {
                 System.out.println("Format error: " + e);
                 return null;
             }
 
-            // 생성
+            // 생성, 여기까지가 돈을 memento 객체에 담는 과정
             Memento memento = new Memento(money);
 
             // 과일
@@ -86,7 +87,7 @@ public class Memento {
             return memento;
         } catch (IOException e) {
             System.out.println(e.toString());
-            return null;
+            return null; // 제대로 객체 생성이 되지 않았다
         }
     }
 }

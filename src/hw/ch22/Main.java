@@ -54,13 +54,13 @@ public class Main extends JFrame implements MouseMotionListener, WindowListener 
             cmd.execute();
         });
         undoButton.addActionListener(e -> {
-          history.undo();
-          canvas.repaint();
-      });
-      redoButton.addActionListener(e -> {
-        history.redo();
-        canvas.repaint();
-    });
+            history.undo();
+            canvas.repaint();
+        });
+        redoButton.addActionListener(e -> {
+            history.redo();
+            canvas.repaint();
+        });
 
         Box buttonBox = new Box(BoxLayout.X_AXIS);
         buttonBox.add(clearButton);

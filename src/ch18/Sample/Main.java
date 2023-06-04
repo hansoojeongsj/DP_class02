@@ -11,7 +11,7 @@ public class Main {
         // 게임 시작 
         for (int i = 0; i < 100; i++) {
             System.out.println("==== " + i);		// 횟수 표시 
-            System.out.println("상태:" + gamer);	// 현재 주인공의 상태 표시 
+            System.out.println("상태:" + gamer);	// 현재 주인공의 상태 표시 "[money = " + money + ", fruits = " + fruits + "]"
 
             // 게임을 진행한다 
             gamer.bet();
@@ -19,15 +19,16 @@ public class Main {
             System.out.println("소지금은 " + gamer.getMoney() + "원이 되었습니다.");
 
             // Memento 취급 방법 결정 
-            if (gamer.getMoney() > memento.getMoney()) {
+            // createMemento, restoreMemento => Caretaker
+            if (gamer.getMoney() > memento.getMoney()) {  // 아까 상태보다 돈 늘어났으면
                 System.out.println("※많이 늘었으니 현재 상태를 저장하자!");
                 memento = gamer.createMemento();
-            } else if (gamer.getMoney() < memento.getMoney() / 2) {
+            } else if (gamer.getMoney() < memento.getMoney() / 2) { // Mememto의 반보다 줄어들었으면
                 System.out.println("※많이 줄었으니 이전 상태를 복원하자！");
                 gamer.restoreMemento(memento);
             }
 
-            // 잠시 대기 
+            // 잠시 대기 (1초간 쉬었다가 진행)
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

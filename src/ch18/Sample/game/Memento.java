@@ -13,18 +13,18 @@ public class Memento {
     }
 
     // 생성자(wide interface)
-    Memento(int money) {
+    Memento(int money) { // 같은 패키지에 있는 클래스만 Mememto 호출 가능
         this.money = money;
         this.fruits = new ArrayList<>();
     }
 
     // 과일을 추가한다(wide interface)
     void addFruit(String fruit) {
-        fruits.add(fruit);
+        fruits.add(fruit); // fruit 저장할 때 List의 add 호출
     }
 
     // 과일을 얻는다(wide interface)
     List<String> getFruits() {
-         return new ArrayList<>(fruits);
+        return new ArrayList<>(fruits);
     }
 }
