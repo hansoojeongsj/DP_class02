@@ -6,14 +6,14 @@ import ch18.A4.game.Gamer;
 import java.io.*;
 
 public class Main {
-    public static final String SAVEFILENAME = "game.dat";
+    public static final String SAVEFILENAME = "game.dat"; // final 초기화할 때 저장하고 이후 절대 못 바꿈
 
     public static void main(String[] args) {
         Gamer gamer = new Gamer(100);         // 최초 소지금은 100
 
         // 파일에서 읽어온다
         Memento memento = Memento.loadFromFile(SAVEFILENAME);
-        if (memento == null) {
+        if (memento == null) { // memeto가 null? 아까 저장 못함. 저장하자~
             System.out.println("새로 시작합니다.");
             memento = gamer.createMemento();  // 최초 상태를 저장해 둔다
         } else {
@@ -31,10 +31,10 @@ public class Main {
 
             System.out.println("소지금은 " + gamer.getMoney() + "원이 되었습니다.");
 
-            // Memento 다루기로 결정 
+            // Memento 다루기로 결정 (저장)
             if (gamer.getMoney() > memento.getMoney()) {
                 System.out.println("※많이 늘었으니 현재 상태를 저장해 두자!");
-                memento = gamer.createMemento();
+                memento = gamer.createMemento(); // memento 생성한 후에 다음줄에서 저장하는 ~, SAVEFILENAME: 상수(위에 선언)
                 // 파일로 기록한다 
                 if (Memento.saveToFile(SAVEFILENAME, memento)) {
                     System.out.println("현재 상태를 파일로 저장했습니다.");
