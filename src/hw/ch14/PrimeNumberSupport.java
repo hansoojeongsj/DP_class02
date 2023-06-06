@@ -22,7 +22,6 @@ public class PrimeNumberSupport extends Support {
             return false;
         }
     }
-    
     return true;
   }
 }
