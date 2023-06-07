@@ -13,11 +13,11 @@ public class Main {
 
 
         // 사슬 형성 
-        alice.setNext(support).setNext(bob).setNext(charlie).setNext(diana).setNext(elmo).setNext(fred);
+        support.setNext(alice).setNext(bob).setNext(charlie).setNext(diana).setNext(elmo).setNext(fred);
 
         // 다양한 트러블 발생
         for (int i = 1; i < 101; i += 1) {
-            alice.support(new Trouble(i));
+            support.support(new Trouble(i));
         }
     }
 }
